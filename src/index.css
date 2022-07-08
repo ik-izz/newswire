@@ -1,0 +1,122 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+  margin: 0 30px;
+  font-family: "Poppins";
+  background: #f1f1f1;
+}
+h1,h2,h3,h4 {
+  font-weight: 500;
+}
+.App {
+  font-size: 1.2em;
+  margin: 10px auto;
+  width: 100%;
+  max-width: 1200px;
+  padding: 20px;
+  box-sizing: border-box;
+}
+a {
+
+  color: #ffcc35;
+}
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  color: #ffcc35;
+  padding-bottom: 10px;
+  border-bottom: 2px solid;
+}
+.site-header h1{
+  font-size: 1.5em;
+  color: #ffcc35;
+}
+.logo{
+  height: 5%;
+  width: 5%;
+}
+
+/* review list */
+.review-card {
+  background: white;
+  margin: 60px auto;
+  padding: 1px 20px 20px 90px;
+  position: relative;
+  border: solid 2px #ffcc35;
+  
+}
+.review-card a{
+  text-decoration: none;
+  border-bottom: 1px dotted;
+}
+.review-card .rating {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  background: #ffcc35;
+  font-size: 3em;
+  width: 90px;
+  height: 90px;
+  text-align: center;
+  color: white;
+}
+.review-card h2 {
+  margin-bottom: 0;
+}
+.review-card small {
+  margin-right: 10px;
+  color: #777;
+}
+.img-wrapper{
+  display: grid;
+  grid-template-columns: 40% 40%;
+  height: 17rem;
+  gap: 30px ;
+  /* background-color: #ffcc35; */
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  margin-bottom: 10px;
+}
+.img-container{
+  position: relative;
+  /* margin:20px; */
+
+}
+.img{
+  position: relative;
+  height: 13rem;
+  box-shadow: 5px 5px 20px black;
+}
+.download-icon{
+  top: 10px;
+  left: 10px;
+  position:absolute;
+  background-color: #f1f1f1;
+}
+.download-icon:hover{
+  box-shadow: 0 0 20px white;
+  transition: 300ms;
+}
+.img:hover{
+  backdrop-filter: blur(6px);
+}
+.button-container{
+  display: flex;
+  justify-content: center;
+}
+.download{
+  width: 20%;
+  font-size: 1.3rem;
+  font-weight: bold;
+  background-color: #ffcc35;
+  color: white;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 20px;
+  display: block;
+}
+.download:hover{
+  transition: 500ms;
+  box-shadow: 5px 5px 10px black;
+}
