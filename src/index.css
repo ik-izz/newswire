@@ -37,7 +37,7 @@ a {
 }
 
 /* review list */
-.review-card {
+.story-card {
   background: white;
   margin: 60px auto;
   padding: 1px 20px 20px 90px;
@@ -45,11 +45,11 @@ a {
   border: solid 2px #ffcc35;
   
 }
-.review-card a{
+.story-card a{
   text-decoration: none;
   border-bottom: 1px dotted;
 }
-.review-card .rating {
+.story-card .rating {
   position: absolute;
   top: -20px;
   left: -20px;
@@ -60,10 +60,10 @@ a {
   text-align: center;
   color: white;
 }
-.review-card h2 {
+.story-card h2 {
   margin-bottom: 0;
 }
-.review-card small {
+.story-card small {
   margin-right: 10px;
   color: #777;
 }
@@ -77,20 +77,23 @@ a {
   justify-content: center;
   overflow: auto;
   margin-bottom: 10px;
+  background-color: #d1cecef1;
 }
 .img-container{
   position: relative;
   /* margin:20px; */
-
+  object-fit:cover;
 }
 .img{
   position: relative;
-  height: 13rem;
+  height: 14rem;
   box-shadow: 5px 5px 20px black;
+  margin: 30px 30px;
+  object-fit: cover;
 }
 .download-icon{
-  top: 10px;
-  left: 10px;
+  top: 40px;
+  left: 40px;
   position:absolute;
   background-color: #f1f1f1;
 }

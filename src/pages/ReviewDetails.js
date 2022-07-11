@@ -33,7 +33,7 @@ export default function Category() {
 
   // console.log(data.data.attributes.media)
   return (
-    <div  className="review-card">
+    <div  className="story-card">
           <div className="rating">{data.data.id}</div>
           <h2>{data.data.attributes.title}</h2>
           <small>published: {data.data.attributes.date}</small>
@@ -81,7 +81,7 @@ export default function Category() {
                         `video.mp4`))
                       :
                         (handleclick(`http://localhost:1337${data.data.attributes.media.data[index].attributes.formats.thumbnail.url}`,
-                        `${data.data.attributes.media.data[index].attributes.alternativeText}.jpg`))
+                        `${data.data.attributes.media.data[index].attributes.alternativeText}`))
                       }
                     }/>
                 </div>

@@ -10,17 +10,17 @@ export default function Homepage() {
   // console.log(data.data[0].attributes.media.data[0].attributes.formats.thumbnail.url)
   return (
     <div>
-      {data.data.map( (review, index) => (
-        <div key={review.id} className="review-card">
+      {data.data.map( (story, index) => (
+        <div key={story.id} className="story-card">
 
-          <div className="rating">{review.id}</div>
-          <h2>{review.attributes.title}</h2>
-          <small>published: {review.attributes.date}</small>
-          <p>{review.attributes.body.substring(0, 200)}...</p>
+          <div className="rating">{story.id}</div>
+          <h2>{story.attributes.title}</h2>
+          <small>published: {story.attributes.date}</small>
+          <p>{story.attributes.body.substring(0, 200)}...</p>
 
           <div className='img-wrapper'>
             
-            {review.attributes.media.data.map( img => {
+            {story.attributes.media.data.map( img => {
              console.log(img.attributes.mime)
               return(
                 <div key={img.id} className='img-container'>
@@ -50,7 +50,7 @@ export default function Homepage() {
             })}
           </div>
 
-          <Link to={`/details/${review.id}`}>Read more</Link>
+          <Link to={`/details/${story.id}`}>Read more</Link>
           {/* <img src={`http://localhost:1337${data.data[index].attributes.media.data[0].attributes.url}`}/> */}
         </div>
       ))}
