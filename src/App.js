@@ -1,5 +1,7 @@
 import { BrowserRouter as Router, Route, Routes,Navigate } from "react-router-dom";
-import {UserContext} from './context/UserContext';
+import RequireAuth from './components/RequireAuth';
+// import  UserContext from './context/UserContext';
+// import { useState } from "react";
 
 //page & layout import
 import Homepage from "./pages/Homepage";
@@ -11,19 +13,24 @@ import Login from './pages/Login'
 function App() {
 
   return (
+    
     <Router>
       <div className="App">
-        <SiteHeader />
-        <Routes>
-          <Route path="/" element={<Login />} />
+        {/* <UserContext> */}
+          <SiteHeader />
+          <Routes>
+            <Route path="/" element={<Login />} />
 
-          <Route path="/homepage" element={<Homepage />} />
+            <Route element={<RequireAuth/>}>
+              <Route path="/homepage" element={<Homepage />} />
 
-          <Route path="/details/:id" element={<ReviewDetails />} />
+              <Route path="/details/:id" element={<ReviewDetails />} />
 
-          <Route path="/category/:id" element={<Category />} />
+              <Route path="/category/:id" element={<Category />} />
+            </Route>
 
-        </Routes>
+          </Routes>
+        {/* </UserContext> */}
       </div>
     </Router>
   );
