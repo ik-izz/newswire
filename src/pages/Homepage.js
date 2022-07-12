@@ -21,7 +21,6 @@ export default function Homepage() {
           <div className='img-wrapper'>
             
             {story.attributes.media.data.map( img => {
-             console.log(img.attributes.mime)
               return(
                 <div key={img.id} className='img-container'>
                   {img.attributes.ext == '.mp4'
