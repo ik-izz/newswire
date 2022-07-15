@@ -36,7 +36,7 @@ const SignIn = () => {
 
         
         console.log(cookies);
-        setCookie( 'token', token, {path:'/', maxAge: 10} );
+        setCookie( 'token', token, {path:'/', maxAge: 120} );
         setAuth({ token, roles, cookies});
 
         //upon successful login it navigates user to page they came from,
