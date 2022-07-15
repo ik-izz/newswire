@@ -21,17 +21,6 @@ export default function Category() {
     })
   }
 
-  // const checkVid = (ext) => {
-
-  //   if(ext.mime == ('video/mp4' || 'video/webm'))
-  //     {  
-  //     return true}
-  //   else 
-  //   {console.log(ext.mime)
-  //   return }
-  // }
-
-  // console.log(data.data.attributes.media)
   return (
     <div  className="story-card">
           <div className="rating">{data.data.id}</div>
