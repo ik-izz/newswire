@@ -7,7 +7,6 @@ import Homepage from "./pages/Homepage";
 import ReviewDetails from "./pages/ReviewDetails";
 import SiteHeader from "./components/SiteHeader"
 import Login from './pages/Login'
-import Test from './pages/test'
 
 function App() {
 
@@ -25,8 +24,6 @@ function App() {
                   <Route path="/homepage" element={<Homepage />} />
 
                   <Route path="/details/:id" element={<ReviewDetails />} />
-                  
-                  <Route path="/test" element={<Test />} />
                 {/* </Route> */}
               </Route>
           </Routes>

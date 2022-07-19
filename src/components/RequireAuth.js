@@ -1,9 +1,6 @@
 import { useLocation, Navigate, Outlet } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 import { useCookies } from "react-cookie";
-import useVerify from '../hooks/useVerify'
-import VerifyToken from "./VerifyToken";
-
 
 const RequireAuth = () => {
     const { auth } = useAuth();
@@ -14,7 +11,7 @@ const RequireAuth = () => {
     //FIXME Need to validate that token stored is actually still valid
     cookies?.token
        ? <Outlet/> 
-        : <Navigate to='/' state={{from: location}} replace />
+      : <Navigate to='/' state={{from: location}} replace />
   )
 }
 

@@ -1,18 +1,6 @@
 import JSZip from  'jszip';
 import { saveAs } from 'file-saver';
 import {zipUrl} from '../pages/ReviewDetails'
-//import JSZipUtils from 'jszip-utils'
-// export const generateZip = () => {
-// var zip = new JSZip();
- 
-// zip.file("Hello.txt", "Hello World\n");
-
-// var img = zip.folder("images");
-
-// zip.generateAsync({type:"blob"}).then(function(content) {
-//     saveAs(content, "example.zip");
-// });
-// }
 
 export const generateZipFromCloud = () => { 
     console.log(zipUrl);

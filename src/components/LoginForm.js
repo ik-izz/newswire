@@ -1,9 +1,8 @@
 import axios from 'axios'
 import React, { useState} from 'react'
-import { Link, useNavigate, useLocation, Navigate } from 'react-router-dom'
+import {useNavigate, useLocation} from 'react-router-dom'
 import useAuth from '../hooks/useAuth';
 import {useCookies} from 'react-cookie';
-import useVerify from '../hooks/useVerify';
 
 import Logo from '../static/logo.png'
 
