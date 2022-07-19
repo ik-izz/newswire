@@ -1,11 +1,13 @@
 import { BrowserRouter as Router, Route, Routes,Navigate } from "react-router-dom";
 import RequireAuth from './components/RequireAuth';
+import VerifyToken from "./components/VerifyToken";
 
 //page & layout import
 import Homepage from "./pages/Homepage";
 import ReviewDetails from "./pages/ReviewDetails";
 import SiteHeader from "./components/SiteHeader"
 import Login from './pages/Login'
+import Test from './pages/test'
 
 function App() {
 
@@ -16,12 +18,16 @@ function App() {
           <SiteHeader />
           <Routes>
             <Route path="/" element={<Login />} />
+            
 
               <Route element={<RequireAuth/>}>
-                <Route path="/homepage" element={<Homepage />} />
+                {/* <Route element={<VerifyToken/>}> */}
+                  <Route path="/homepage" element={<Homepage />} />
 
-                <Route path="/details/:id" element={<ReviewDetails />} />
-
+                  <Route path="/details/:id" element={<ReviewDetails />} />
+                  
+                  <Route path="/test" element={<Test />} />
+                {/* </Route> */}
               </Route>
           </Routes>
       </div>

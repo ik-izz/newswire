@@ -16,19 +16,20 @@ import {zipUrl} from '../pages/ReviewDetails'
 
 export const generateZipFromCloud = () => { 
     console.log(zipUrl);
-  let filename = "Vngle";
-//   const urls = [
-//     'http://localhost:1337/uploads/thumbnail_peakpx_9f2197dacc.jpg',
-//     ]
+
+    let filename = "Vngle";
     const zip = new JSZip()
     const folder = zip.folder('Media')
+
     zipUrl.forEach((url)=> {
-   const blobPromise =  fetch(url)    
-.then(function (response) {  
+    const blobPromise =  fetch(url)    
+    .then(function (response) {  
+
   console.log({response})             
     if (response.status === 200 || response.status === 0) {
         return Promise.resolve(response.blob());
     } else {
+    
         return Promise.reject(new Error(response.statusText));
     }
 })                          

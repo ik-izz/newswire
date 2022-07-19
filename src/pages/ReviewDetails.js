@@ -13,7 +13,6 @@ export default function Category() {
   const {id} = useParams() ;
   const {loading, error, data} = useFetch(`http://localhost:1337/api/reviews/${id}?populate=media`);
 
-
   if (loading) return <p>Loading...</p>
 
   const handleclick = (url, media) => {
@@ -37,30 +36,15 @@ export default function Category() {
           <div className='img-wrapper'>
             {data.data.attributes.media.data.map( (img, index) => {
               
-              img.attributes.ext == '.mp4'
-                  ?
-                    zipUrl.push(`http://localhost:1337${img.attributes.url}`)
-                  :
-                  img.attributes.ext == '.webm'
+              img.attributes.mime.includes('video')
                   ?
                     zipUrl.push(`http://localhost:1337${img.attributes.url}`)
                   :
                     zipUrl.push(`http://localhost:1337${img.attributes.formats.thumbnail.url}`);
                   
-              
-              // console.log(zipUrl)
-              // console.log(img.attributes.mime)
               return(
                 <div className='img-container' key={img.id}>
-                  {img.attributes.ext == '.mp4'
-                  ?
-                    <video 
-                    className='img'
-                    controls 
-                    src={`http://localhost:1337${img.attributes.url}`}
-                    />
-                  :
-                  img.attributes.ext == '.webm'
+                  {img.attributes.mime.includes('video')
                   ?
                     <video 
                     className='img'
@@ -78,15 +62,10 @@ export default function Category() {
                     src={Download} 
                     className='download-icon'
                     onClick={() => 
-                      {img.attributes.ext == '.webm'
+                      {img.attributes.mime.includes('video')
                       ?
                         (handleclick(`http://localhost:1337${data.data.attributes.media.data[index].attributes.url}`,
                         `video.webm`))
-                        :
-                        img.attributes.ext == '.mp4' 
-                      ?
-                        (handleclick(`http://localhost:1337${data.data.attributes.media.data[index].attributes.url}`,
-                        `video.mp4`))
                       :
                         (handleclick(`http://localhost:1337${data.data.attributes.media.data[index].attributes.formats.thumbnail.url}`,
                         `${data.data.attributes.media.data[index].attributes.alternativeText}`))

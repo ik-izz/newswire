@@ -3,6 +3,7 @@ import React, { useState} from 'react'
 import { Link, useNavigate, useLocation, Navigate } from 'react-router-dom'
 import useAuth from '../hooks/useAuth';
 import {useCookies} from 'react-cookie';
+import useVerify from '../hooks/useVerify';
 
 import Logo from '../static/logo.png'
 
@@ -34,9 +35,8 @@ const SignIn = () => {
         //FIXME!!! need to set access based on roles
         const roles = response?.data?.roles;
 
-        
-        console.log(cookies);
-        setCookie( 'token', token, {path:'/', maxAge: 120} );
+        setCookie( 'token', token, {path:'/', maxAge: 6000} );
+
         setAuth({ token, roles, cookies});
 
         //upon successful login it navigates user to page they came from,
