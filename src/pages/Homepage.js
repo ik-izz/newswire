@@ -1,10 +1,12 @@
 import React from 'react'
 import useFetch from '../hooks/useFetch'
 import { Link } from 'react-router-dom'
+import { useCookies } from 'react-cookie'
 
 
 export default function Homepage() {
-  const { loading, error, data } = useFetch('http://localhost:1337/api/reviews?populate=media')
+  const [cookies] = useCookies(['token']);
+  const { loading, error, data } = useFetch('http://localhost:1337/api/reviews?populate=media', cookies.token)
 
   if (loading) return <p>Loading...</p>;
 

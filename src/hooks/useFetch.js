@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 
-const useFetch = (url) => {
+const useFetch = (url,token) => {
   const [data, setData] = useState([])
   const [error, setError] = useState([])
   const [loading, setLoading] = useState(true)
@@ -10,7 +10,11 @@ const useFetch = (url) => {
       setLoading(true)
       console.log('I was called')
       try {
-        const res = await fetch(url)
+        const res = await fetch(url, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        })
         const json = await res.json()
 
         setData(json);

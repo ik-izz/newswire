@@ -4,6 +4,7 @@ import useFetch from '../hooks/useFetch'
 import axios from 'axios'
 import fileDownload from 'js-file-download'
 import {generateZip, generateZipFromCloud} from '../components/GenerateZip';
+import { useCookies } from 'react-cookie'
 
 import Download from '../static/download.png'
 
@@ -11,7 +12,8 @@ export const zipUrl = []
 
 export default function Category() {
   const {id} = useParams() ;
-  const {loading, error, data} = useFetch(`http://localhost:1337/api/reviews/${id}?populate=media`);
+  const [cookies] = useCookies(['token']);
+  const { loading, error, data } = useFetch(`http://localhost:1337/api/reviews/${id}?populate=media`, cookies.token);
 
   if (loading) return <p>Loading...</p>
 

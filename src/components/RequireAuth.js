@@ -3,7 +3,7 @@ import useAuth from "../hooks/useAuth";
 import { useCookies } from "react-cookie";
 
 const RequireAuth = () => {
-    const { auth } = useAuth();
+  const { auth } = useAuth();
     const location = useLocation();
     const [cookies] = useCookies(['token']);
     console.log('require auth called')
