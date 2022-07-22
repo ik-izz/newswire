@@ -10,10 +10,10 @@ import Download from '../static/download.png'
 
 export const zipUrl = []
 
-export default function Category() {
+export default function Story() {
   const {id} = useParams() ;
   const [cookies] = useCookies(['token']);
-  const { loading, error, data } = useFetch(`http://localhost:1337/api/reviews/${id}?populate=media`, cookies.token);
+  const { loading, error, data } = useFetch(`http://localhost:1337/api/stories/${id}?populate=Media`, cookies.token);
 
   if (loading) return <p>Loading...</p>
 
@@ -31,18 +31,18 @@ export default function Category() {
   return (
     <div  className="story-card">
           <div className="rating">{data.data.id}</div>
-          <h2>{data.data.attributes.title}</h2>
-          <small>published: {data.data.attributes.date}</small>
-          <p>{data.data.attributes.body}</p>
+          <h2>{data.data.attributes.Title}</h2>
+          <small>published: {data.data.attributes.Date}</small>
+          <p>{data.data.attributes.Description}</p>
 
           <div className='img-wrapper'>
-            {data.data.attributes.media.data.map( (img, index) => {
+            {data.data.attributes.Media.data.map( (img, index) => {
               
               img.attributes.mime.includes('video')
                   ?
                     zipUrl.push(`http://localhost:1337${img.attributes.url}`)
                   :
-                    zipUrl.push(`http://localhost:1337${img.attributes.formats.thumbnail.url}`);
+                    zipUrl.push(`http://localhost:1337${img.attributes.url}`);
                   
               return(
                 <div className='img-container' key={img.id}>
@@ -56,7 +56,7 @@ export default function Category() {
                   :
                     <img 
                     className='img'
-                    src={`http://localhost:1337${img.attributes.formats.thumbnail.url}`}
+                    src={`http://localhost:1337${img.attributes.url}`}
                     />
                   }
                   
@@ -66,11 +66,11 @@ export default function Category() {
                     onClick={() => 
                       {img.attributes.mime.includes('video')
                       ?
-                        (handleclick(`http://localhost:1337${data.data.attributes.media.data[index].attributes.url}`,
+                        (handleclick(`http://localhost:1337${data.data.attributes.Media.data[index].attributes.url}`,
                         `video.webm`))
                       :
-                        (handleclick(`http://localhost:1337${data.data.attributes.media.data[index].attributes.formats.thumbnail.url}`,
-                        `${data.data.attributes.media.data[index].attributes.alternativeText}`))
+                        (handleclick(`http://localhost:1337${data.data.attributes.Media.data[index].attributes.url}`,
+                        `${data.data.attributes.Media.data[index].attributes.alternativeText}`))
                       }
                     }/>
                 </div>

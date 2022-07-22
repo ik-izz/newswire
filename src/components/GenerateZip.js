@@ -1,6 +1,6 @@
 import JSZip from  'jszip';
 import { saveAs } from 'file-saver';
-import {zipUrl} from '../pages/ReviewDetails'
+import {zipUrl} from '../pages/Story'
 
 export const generateZipFromCloud = () => { 
     console.log(zipUrl);

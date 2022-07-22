@@ -4,7 +4,7 @@ import VerifyToken from "./components/VerifyToken";
 
 //page & layout import
 import Homepage from "./pages/Homepage";
-import ReviewDetails from "./pages/ReviewDetails";
+import Story from "./pages/Story";
 import SiteHeader from "./components/SiteHeader"
 import Login from './pages/Login'
 
@@ -23,7 +23,7 @@ function App() {
                 {/* <Route element={<VerifyToken/>}> */}
                   <Route path="/homepage" element={<Homepage />} />
 
-                  <Route path="/details/:id" element={<ReviewDetails />} />
+                  <Route path="/story/:id" element={<Story />} />
                 {/* </Route> */}
               </Route>
           </Routes>
