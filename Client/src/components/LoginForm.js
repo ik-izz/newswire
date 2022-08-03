@@ -7,6 +7,7 @@ import {useCookies} from 'react-cookie';
 import Logo from '../static/logo.png'
 
 const SignIn = () => {
+  const url = 'http://ec2-54-90-186-77.compute-1.amazonaws.com/api/auth/local'
   const {setAuth} = useAuth();
 
   const navigate = useNavigate();
@@ -22,7 +23,7 @@ const SignIn = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
-      .post('http://localhost:1338/api/auth/local', {
+      .post(url, {
       identifier: formData.userName,
       password: formData.password
       })

@@ -5,8 +5,9 @@ import { useCookies } from 'react-cookie'
 
 
 export default function Homepage() {
+  const aws_url = 'http://ec2-54-90-186-77.compute-1.amazonaws.com'
   const [cookies] = useCookies(['token']);
-  const { loading, error, data } = useFetch('http://localhost:1338/api/stories?populate=Media', cookies.token)
+  const { loading, error, data } = useFetch(`${aws_url}/api/stories?populate=Media`, cookies.token)
 
   if (loading) return <p>Loading...</p>;
 
@@ -23,30 +24,21 @@ export default function Homepage() {
           <p>{story.attributes.Description.substring(0, 200)}...</p>
 
           <div className='img-wrapper'>
-            
             {story.attributes.Media.data.map( img => {
               console.log(img)
               return(
                 <div key={img.id} className='img-container'>
-                  {img.attributes.ext == '.mp4'
+                   {img.attributes.mime.includes('video')
                   ?
-                    <video key={img.id}
+                    <video 
                     className='img'
                     controls 
-                    src={`http://localhost:1338${img.attributes.url}`}
+                    src={img.attributes.url}
                     />
                   :
-                  img.attributes.ext == '.webm'
-                  ?
-                  <video key={img.id}
-                  className='img'
-                  controls 
-                  src={`http://localhost:1338${img.attributes.url}`}
-                />
-                  :
-                    <img key={img.id}
+                    <img 
                     className='img'
-                    src={`http://localhost:1338${img.attributes.url}`}
+                    src={img.attributes.url}
                     />
                   }
                 </div>
