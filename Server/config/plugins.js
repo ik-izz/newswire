@@ -3,11 +3,11 @@ module.exports = ({ env }) => ({
       config: {
         provider: 'aws-s3',
         providerOptions: {
-          accessKeyId: env('AWS_ACCESS_KEY_ID'),
-          secretAccessKey: env('AWS_ACCESS_SECRET'),
-          region: env('AWS_REGION'),
+          accessKeyId: env('AKIAXRGWTTAPOD33SZUT'),
+          secretAccessKey: env('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'),
+          region: env('us-east-1'),
           params: {
-              Bucket: env('AWS_BUCKET_NAME'),
+              Bucket: env('vngle'),
           },
         },
         // These parameters could solve issues with ACL public-read access — see [this issue](https://github.com/strapi/strapi/issues/5868) for details
@@ -22,4 +22,3 @@ module.exports = ({ env }) => ({
       },
     }
   });
-  
