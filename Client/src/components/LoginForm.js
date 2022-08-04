@@ -7,7 +7,7 @@ import {useCookies} from 'react-cookie';
 import Logo from '../static/logo.png'
 
 const SignIn = () => {
-  const url = 'http://ec2-54-90-186-77.compute-1.amazonaws.com/api/auth/local'
+  const url = 'http://ec2-3-87-173-126.compute-1.amazonaws.com/api/auth/local'
   const {setAuth} = useAuth();
 
   const navigate = useNavigate();

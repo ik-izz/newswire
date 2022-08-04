@@ -12,13 +12,12 @@ h1,h2,h3,h4 {
   font-size: 1.2em;
   margin: 10px auto;
   width: 100%;
-  max-width: 1200px;
-  min-width: 600px;
+  /* max-width: 1600px;
+  min-width: 600px; */
   padding: 20px;
   box-sizing: border-box;
 }
 a {
-
   color: #ffcc35;
 }
 .site-header {
@@ -27,6 +26,7 @@ a {
   color: #ffcc35;
   padding-bottom: 10px;
   border-bottom: 2px solid;
+  background: #f1f1f1;
 }
 .site-header h1{
   font-size: 1.5em;
@@ -55,10 +55,9 @@ a {
 .story-card {
   background: white;
   margin: 60px auto;
-  padding: 1px 20px 20px 90px;
+  padding: 10px 20px 20px 90px;
   position: relative;
   border: solid 2px #ffcc35;
-  
 }
 .story-card a{
   text-decoration: none;
@@ -145,10 +144,6 @@ a {
   border-radius: 30px;
   box-shadow: 12px 12px 22px rgb(163, 156, 156);
 }
-img{
-  border-top-left-radius: 30px;
-  border-bottom-left-radius: 30;
-}
 .btn1{
   border: none;
   outline: none;
@@ -170,4 +165,9 @@ img{
 .form-container > section {
   padding-top: 8rem;
 
+}
+.carousel{
+  margin: 2rem 0;
+  border: 10px solid #ffcc35;
+  box-shadow: 5px 5px 20px black;
 }
