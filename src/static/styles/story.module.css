@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css');
+a {
+    color: #ffcc35;
+  }
+.storyCard {
+    background: white;
+    margin: 60px auto;
+    padding: 10px 20px 20px 90px;
+    position: relative;
+    border: solid 2px #ffcc35;
+  }
+  .storyCard a{
+    text-decoration: none;
+    border-bottom: 1px dotted;
+  }
+  .storyCard .rating {
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    background: #ffcc35;
+    font-size: 3em;
+    width: 90px;
+    height: 90px;
+    text-align: center;
+    color: white;
+  }
+  .storyCard h2 {
+    margin-bottom: 0;
+  }
+  .storyCard small {
+    margin-right: 10px;
+    color: #777;
+  }
+  .imgWrapper{
+    display: grid;
+    grid-template-columns: 40% 40%;
+    height: 17rem;
+    gap: 30px ;
+    /* background-color: #ffcc35; */
+    align-items: center;
+    justify-content: center;
+    overflow: auto;
+    margin-bottom: 10px;
+    background-color: #d1cecef1;
+  }
+  .imgContainer{
+    position: relative;
+    /* margin:20px; */
+    object-fit:cover;
+  }
+  .img{
+    position: relative;
+    height: 14rem;
+    box-shadow: 5px 5px 20px black;
+    margin: 30px 30px;
+    object-fit: cover;
+  }
+  .downloadIcon{
+    top: 40px;
+    left: 40px;
+    position:absolute;
+    background-color: #f1f1f1;
+  }
+  .downloadIcon:hover{
+    box-shadow: 0 0 20px white;
+    transition: 300ms;
+  }
+  .img:hover{
+    backdrop-filter: blur(6px);
+  }
+  .buttonContainer{
+    display: flex;
+    justify-content: center;
+  }
+  .download{
+    width: 20%;
+    font-size: 1.3rem;
+    font-weight: bold;
+    background-color: #ffcc35;
+    color: white;
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 20px;
+    display: block;
+  }
+  .download:hover{
+    transition: 500ms;
+    box-shadow: 5px 5px 10px black;
+  }
+  .carousel{
+    margin: 2rem 0;
+    border: 10px solid #ffcc35;
+    box-shadow: 5px 5px 20px black;
+  }
+  

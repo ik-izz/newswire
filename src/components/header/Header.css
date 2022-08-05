@@ -1,0 +1,66 @@
+.header-1{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: .5rem .5rem;
+    color: white;
+    border-radius: 5px ;
+    overflow: hidden;
+    gap: 5px;
+    height: 70vh;
+    border: solid;
+    margin-top: -2rem;
+}
+.trend{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    gap: 5px;
+}
+.trend-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px;
+}
+
+.size{
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+}
+
+.text{
+    display: flex;
+
+}
+.push{
+    align-self: flex-end;
+    margin-left: .5rem;
+}
+
+.tag{
+   
+    background-color: black;
+    display: inline;
+    margin-top: -5px;
+    padding: .2rem;
+}
+
+.trends-text{
+    margin-bottom: 2.5rem;
+    text-decoration: underline;
+    text-align: center;
+}
+
+
+.top-trend{ 
+    height: 100% ;
+}
+.top-trend .carousel-inner{
+    /* margin-top: 2rem; */
+    height: 100% !important;
+}
+.extend{
+    height: 100% !important;
+    border-radius: 5px 0 0 5px;
+}
