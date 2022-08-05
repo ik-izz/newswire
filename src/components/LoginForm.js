@@ -4,8 +4,9 @@ import {useNavigate, useLocation} from 'react-router-dom'
 import useAuth from '../hooks/useAuth';
 import {useCookies} from 'react-cookie';
 import styles from './styles/loginForm.module.css'
+import { Container, Row, Col } from 'react-bootstrap';
+import { FiInstagram, FiFacebook, FiLinkedin, FiTwitter } from "react-icons/fi";
 
-import Logo from '../static/logo.png'
 
 const SignIn = () => {
   const url = 'http://ec2-54-221-55-188.compute-1.amazonaws.com/api/auth/local'
@@ -52,26 +53,27 @@ const SignIn = () => {
   }
 
   return (
+    <div>
     <div className={`${styles.formContainer}`}>
 
-    <section className={`Form my-4 mx-5`}>
+    <section className={`Form my-0 mx-5`}>
           <div className={`${styles.container}`}>
               <div className={`${styles.row} row`}>
-                  <div className={`col-lg-5`}>
-                      <img src={Logo} className={`img-fluid alt=`}/>
-                  </div>
-                  <div className={`col-lg-7 px-5 pt-5`}>
+                  {<div className={`col-lg-5`}>
+                  {/* Picture was here <img src={Logo} className={`img-fluid alt=`}/>*/}
+                  </div>}
+                  <div className={`col-lg-20 px-5 p-5`}>
                       {/* <h1 className={`font-weight-bold py-3`}>Vngle</h1> */}
-                      <h4>Sign into your account</h4>
+                      <h4>Sign into your Vngle account</h4>
                       <form onSubmit={handleSubmit}>
                           <div className={`form-row`}>
-                              <div className={`col-lg-7`}>
+                              <div className={`col-lg-12`}>
                               <input 
                                 type='text' 
                                 id='username'
                                 placeholder='username'
                                 autoComplete='off'
-                                className={`form-control my-3 p-4`}
+                                className={`form-control my-5 p-4`}
                                 value={formData.title} 
                                 onChange={(e) => {setFormData({...formData, userName: e.target.value})}}
                                 required
@@ -80,7 +82,7 @@ const SignIn = () => {
                           </div>
 
                           <div className={`form-row`}>
-                            <div className={`col-lg-7`}>
+                            <div className={`col-lg-12`}>
                             <input
                               type='password'
                               id='password'
@@ -92,23 +94,57 @@ const SignIn = () => {
                             </div>
                           </div>
 
-                          <div className={`form-row`}>
-                            <div className={`col-lg-7`}>
+                          <div className={`form-row d-flex justify-content-center`}>
+                            <div className={`col-lg-9`}>
                                 <button 
                                 onClick={handleSubmit}
-                                type="button" className={`${styles.btn1} mt-3 mb-5`}>Login</button>
+                                type="button" className={`${styles.btn1} mt-4 mb-5 mt-4`}>Login</button>
                             </div>
                           </div>
                           <a href="#">Forgot Password</a>
                           <p>Don't have an account? <a href="#">Register here</a></p>
-
-
                       </form>
                       
                   </div>
               </div>
           </div>
       </section>
+     
+
+    </div>
+    <Container as="footer" className="text-center mt-0 footer">
+        <Row>
+          
+          <Col className="mb-0">
+          
+          <Container className="mb-3 mt-3 mx-0">
+          <h6>Follow us on social media for more</h6>
+          
+          <a href="https://www.instagram.com/vnglestories/" >
+            <FiInstagram className='me-3'/>
+          </a>
+          
+          
+          <a href="https://www.facebook.com/vnglestories/" >
+            <FiFacebook className='me-3'/>
+          </a>
+          
+          
+          <a href="https://www.linkedin.com/company/vngle/" >
+            <FiLinkedin className='me-3'/>
+          </a>
+         
+          <a href="https://twitter.com/vnglestories" >
+            <FiTwitter className='me-3'/>
+          </a>          
+          </Container>
+          </Col>
+        </Row>
+
+      
+      </Container>
+      
+
     </div>
   )
 }
