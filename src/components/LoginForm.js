@@ -9,7 +9,7 @@ import { FiInstagram, FiFacebook, FiLinkedin, FiTwitter } from "react-icons/fi";
 
 
 const SignIn = () => {
-  const url = 'http://ec2-54-221-55-188.compute-1.amazonaws.com/api/auth/local'
+  const url = 'http://ec2-34-227-193-48.compute-1.amazonaws.com/api/auth/local'
   const {setAuth} = useAuth();
 
   const navigate = useNavigate();
@@ -53,7 +53,10 @@ const SignIn = () => {
   }
 
   return (
-    <div>
+    <div class="overlay">
+      <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+  <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4" />
+  </video>
     <div className={`${styles.formContainer}`}>
 
     <section className={`Form my-0 mx-5`}>
@@ -143,6 +146,7 @@ const SignIn = () => {
 
       
       </Container>
+      
       
 
     </div>
