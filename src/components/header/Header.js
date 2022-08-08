@@ -49,7 +49,7 @@ function Header() {
           </Carousel.Item>
         </Carousel>
 
-      <img src={img_11}  className="second-trend h-100"/>
+      <img src={img_11}  className="second-trend h-90"/>
       {/* <Carousel className="second-trend">
           <Carousel.Item >
             <img className="w-100 " src={img_1} alt="First slide" />

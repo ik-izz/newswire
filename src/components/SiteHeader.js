@@ -19,7 +19,7 @@ export default function SiteHeader() {
 
   }
   return (
-    <Navbar className={`${styles.topHeader} navbar-dark bg-dark`} sticky='top'>
+    <Navbar className={`${styles.topHeader} navbar-dark `} sticky='top'>
       <div class="container-fluid">
           <Link class="navbar-brand" to='/homepage'>
             <Navbar.Brand href="homepage">
@@ -33,12 +33,16 @@ export default function SiteHeader() {
             </Navbar.Brand>
         </Link>
       </div>
-  
+    {cookies?.token ?
       <Nav className={`${styles.menuLinks}`}>
+        <Link to='/' className="" onClick={handleRemoveCookie}><h3>Logout</h3></Link>
         <Link to="/homepage" className="btn-1"><h3>Stories</h3></Link>
-        <Link to='/' className=""><h3>Logout</h3></Link>
-        <Link to='/' className="" onClick={handleRemoveCookie}><h3>Account</h3></Link>
+        <Link to='/' className="" ><h3>Account</h3></Link>
       </Nav>  
+      :
+      <Nav className={`${styles.menuLinks}`}>
+        <Link to='/' className=""><h3>Login</h3></Link>
+      </Nav>  }
     </Navbar>
   )
 }

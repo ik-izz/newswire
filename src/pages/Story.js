@@ -5,8 +5,11 @@ import axios from 'axios'
 import fileDownload from 'js-file-download'
 import {generateZip, generateZipFromCloud} from '../components/GenerateZip';
 import { useCookies } from 'react-cookie'
-import Carousel from 'react-bootstrap/Carousel';
+// import Carousel from 'react-bootstrap/Carousel';
 import styles from '../static/styles/story.module.css'
+import ImageGallery from '../components/Carousel/Carousel'
+import Carousel from '../components/Carousel/Carousel'
+import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import Download from '../static/download.png'
 
@@ -38,8 +41,8 @@ export default function Story() {
           <h2>{data.data.attributes.Title}</h2>
           <small>published: {data.data.attributes.Date}</small>
           <p>{data.data.attributes.Description}</p>
-
-          <div className={styles.imgWrapper}>
+      <Carousel items={data}/>
+          {/* <div className={styles.imgWrapper}>
             {data.data.attributes.Media.data.map( (img, index) => {
               
               img.attributes.mime.includes('video')
@@ -79,7 +82,7 @@ export default function Story() {
                 </div>
               )
             })}
-          </div>
+          </div> */}
           
           {/* <a href={url} download={'media.jpg'} target={'blank'}> */}
           <div className={styles.buttonContainer}>
