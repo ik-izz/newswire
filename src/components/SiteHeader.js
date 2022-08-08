@@ -26,8 +26,8 @@ export default function SiteHeader() {
               <img
                 alt=""
                 src={Logo}
-                width="45"
-                height="45"
+                width="60"
+                height="65"
                 className=" align-top"
               />
             </Navbar.Brand>

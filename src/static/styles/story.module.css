@@ -3,7 +3,12 @@
 a {
     color: #ffcc35;
   }
+  .story{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
 .storyCard {
+  width: 60%;
     background: white;
     margin: 60px auto;
     padding: 10px 20px 20px 90px;
@@ -26,39 +31,49 @@ a {
     color: white;
   }
   .storyCard h2 {
-    margin-bottom: 0;
+    margin: 1rem 0;
   }
   .storyCard small {
-    margin-right: 10px;
+    margin: 1rem 0;
     color: #777;
+  }
+  .storyCard p{
+    margin: 1rem 0;
   }
   .imgWrapper{
     display: grid;
-    grid-template-columns: 40% 40%;
-    height: 17rem;
-    gap: 30px ;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr 1fr;
+    margin: 2rem 0;
+    /* height: 17rem;
+    gap: 30px ; */
     /* background-color: #ffcc35; */
-    align-items: center;
-    justify-content: center;
+    /* align-items: center;
+    justify-content: center; */
     overflow: auto;
-    margin-bottom: 10px;
-    background-color: #d1cecef1;
+    /* margin-bottom: 10px;
+    background-color: #d1cecef1; */
   }
   .imgContainer{
     position: relative;
-    /* margin:20px; */
-    object-fit:cover;
+    /* margin: 0 0 0 0; */
+    /* object-fit:fill; */
+    /* background-color: #d1cecef1; */
+    margin: 0 0 0.1rem 0.1rem;
   }
   .img{
     position: relative;
     height: 14rem;
-    box-shadow: 5px 5px 20px black;
-    margin: 30px 30px;
+    /* box-shadow: 5px 5px 20px black; */
+    /* margin: 30px 30px; */
     object-fit: cover;
   }
+  .img:hover{
+    border: #ffcc35 solid 3px;
+  }
   .downloadIcon{
-    top: 40px;
-    left: 40px;
+    top: 0.5rem;
+    left: 0.5rem;
     position:absolute;
     background-color: #f1f1f1;
   }
@@ -92,5 +107,21 @@ a {
     margin: 2rem 0;
     border: 10px solid #ffcc35;
     box-shadow: 5px 5px 20px black;
+  }
+  .imgWrapper::-webkit-scrollbar {
+    width: 10px;
+    height: 1rem;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #ffcc35; 
+    border-radius: 10px;
   }
   

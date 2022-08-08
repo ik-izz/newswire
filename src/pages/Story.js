@@ -1,10 +1,11 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, Link } from 'react-router-dom'
 import useFetch from '../hooks/useFetch'
 import axios from 'axios'
 import fileDownload from 'js-file-download'
 import {generateZip, generateZipFromCloud} from '../components/GenerateZip';
 import { useCookies } from 'react-cookie'
+import Carousel from 'react-bootstrap/Carousel';
 import styles from '../static/styles/story.module.css'
 
 import Download from '../static/download.png'
@@ -12,10 +13,11 @@ import Download from '../static/download.png'
 export const zipUrl = []
 
 export default function Story() {
-  const aws_url = 'http://ec2-54-221-55-188.compute-1.amazonaws.com'
+  const aws_url = 'http://ec2-34-227-193-48.compute-1.amazonaws.com'
   const {id} = useParams() ;
   const [cookies] = useCookies(['token']);
   const { loading, error, data } = useFetch(`${aws_url}/api/stories/${id}?populate=Media`, cookies.token);
+  const { data:fullData } = useFetch(`${aws_url}/api/stories/?populate=Media`, cookies.token);
 
   if (loading) return <p>Loading...</p>
 
