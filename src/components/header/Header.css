@@ -3,12 +3,12 @@
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: repeat(4, 25%);
     margin: .5rem .5rem;
-    color: white;
+    /* color: white; */
     border-radius: 5px ;
     overflow: hidden;
     gap: 5px;
     height: 70vh;
-    border: solid;
+    /* border: solid; */
     margin-top: -3.3rem;
     margin-top: -2rem;
 }

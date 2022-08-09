@@ -6,10 +6,12 @@ import Header from "../components/header/Header";
 import Carousel from 'react-bootstrap/Carousel';
 import Logo from '../static/logo.png';
 import { Container, Row } from 'react-bootstrap';
+
+import MediaCarousel from '../components/Carousel/Carousel'
 import styles  from '../static/styles/homepage.module.css'
 
 export default function Homepage() {
-  const aws_url = 'http://ec2-34-227-193-48.compute-1.amazonaws.com'
+  const aws_url = 'http://ec2-34-229-6-6.compute-1.amazonaws.com'
   const [cookies] = useCookies(['token']);
   const { loading, error, data } = useFetch(`${aws_url}/api/stories?populate=Media`, cookies.token)
 
@@ -18,7 +20,7 @@ export default function Homepage() {
   // console.log(data.data[0].attributes.media.data[0].attributes.formats.thumbnail.url)
   console.log(data)
   return (
-    <div className='p-5'>
+    <div className={`p-5 ${styles.homeBody}`}  >
       <Header/>
 
     {/* <div className='d-flex justify-content-center'>
@@ -52,7 +54,10 @@ export default function Homepage() {
           <p>{story.attributes.Description.substring(0, 200)}...</p>
           
           <div className={styles.imgWrapper}>
-            {story.attributes.Media.data.map( img => {
+            {console.log(story)}
+            <MediaCarousel items={story} id='hello' />
+
+            {/* {story.attributes.Media.data.map( img => {
               console.log(img)
               return(
                 <div key={img.id} className={styles.imgContainer}>
@@ -71,10 +76,10 @@ export default function Homepage() {
                   }
                 </div>
               )
-            })}
+            })} */}
           </div>
 
-          <Link to={`/story/${story.id}`}>Read more</Link>
+          <Link to={`/story/${story.id}`} >Read more</Link>
           {/* <img src={`http://localhost:1337${data.data[index].attributes.media.data[0].attributes.url}`}/> */}
         </div>
         

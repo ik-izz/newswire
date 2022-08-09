@@ -3,19 +3,9 @@ import ImageGallery from "react-image-gallery";
 import { Carousel } from "react-responsive-carousel";
 import './Carousel.css'
 
-import img1 from './Static/img1.jpg'
-import img2 from './Static/img2.jpg'
-import img3 from './Static/img3.jpg'
-import img4 from './Static/img4.jpg'
-import img5 from './Static/img5.jpg'
-import img6 from './Static/img6.jpg'
-import Video from './Static/video.webm'
-
-
 const MyGallery = ({items}) => {
-    console.log(items.data.attributes.Media.data)
-    const info = items.data.attributes;
-    const url = items.data.attributes.Media.data
+    console.log(items) 
+    const url = items.attributes.Media.data
     console.log(url)
         return (
         <Carousel 
