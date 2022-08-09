@@ -73,11 +73,6 @@ background: #ffcc35;
 border-radius: 10px;
 } */
 
-.homeBody{
-  background: rgb(244,234,204);
-  background: radial-gradient(circle, rgba(244,234,204,1) 0%, rgba(255,204,53,1) 95%);
-}
-
 a {
     color: #ffcc35;
   }

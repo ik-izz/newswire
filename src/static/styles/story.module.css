@@ -19,17 +19,17 @@ a {
     /* border: double 3px #ffcc35; */
     /* z-index: 1; */
   }
-  .storyCard:before{
+  /* .storyCard:before{
     content: '';
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
-    box-shadow: inset 0 0 2000px rgba(7, 7, 7, 0.5);
-    /* box-shadow: inset 2000px 2000px 2000px rgba(255, 204, 53, 0.5); */
-    filter: blur(3px);
-  }
+    box-shadow: inset 0 0 2000px rgba(7, 7, 7, 0.5); 
+    box-shadow: inset 2000px 2000px 2000px rgba(255, 204, 53, 0.5);
+     filter: blur(3px);
+  } */
   /* .storyCard .rating {
     position: absolute;
     top: -20px;
@@ -45,6 +45,7 @@ a {
     margin: 1rem 1rem;
     color: black;
     z-index: 10;
+    min-width: 15rem;
   }
   .storyCard small {
     margin: 1rem 1rem;
@@ -56,6 +57,7 @@ a {
     margin: 1rem 1rem 4rem 1rem;
     z-index: 10;
     font-weight: bold;
+    min-width: 15rem;
   }
   .downloadIcon{
     top: 0.5rem;
@@ -73,6 +75,7 @@ a {
   }
   .download{
     width: 20%;
+    min-width: 15rem;
     font-size: 1.3rem;
     font-weight: bold;
     /* background-color: #000000; */
@@ -81,11 +84,11 @@ a {
     margin-top: 1.2rem;
     padding: 0.6rem;
     border-radius: 20px;
-    z-index: 10;
   }
   .download:hover{
     transition: 500ms;
     box-shadow: 5px 5px 10px black;
   }
+ 
  
   

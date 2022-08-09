@@ -16,6 +16,7 @@
 }
 .carousel-slider *{
     max-height: 30vh;
+    color: #ffcc35;
 }
 .carousel-slider img{
     max-height: 30vh;
@@ -23,3 +24,7 @@
 .carousel-slider video{
     max-height: 30vh;
 }
+.slider-wrapper{
+    border: inset 3px rgb(146, 140, 140);
+    background-color: rgba(214, 193, 164, 0.849);
+  }
