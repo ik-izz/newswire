@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
 import Header from "../components/header/Header";
 import Carousel from 'react-bootstrap/Carousel';
-import Logo from '../static/logo.png';
-import { Container, Row } from 'react-bootstrap';
 
 import MediaCarousel from '../components/Carousel/Carousel'
 import styles  from '../static/styles/homepage.module.css'

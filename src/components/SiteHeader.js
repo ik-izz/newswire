@@ -5,7 +5,6 @@ import {useCookies} from 'react-cookie';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
-import { Container } from 'react-bootstrap';
 import styles from './styles/siteHeader.module.css'
 
 export default function SiteHeader() {

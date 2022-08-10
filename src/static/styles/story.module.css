@@ -8,39 +8,13 @@ a {
     display: flex;
     justify-content: center;
     background-color: f1f1f1;
-    /* background: rgb(244,234,204);
-    background: radial-gradient(circle, rgba(244,234,204,1) 0%, rgba(255,204,53,1) 95%); */
 }
 .storyCard {
     width: 85%;
     margin-left: 20vw;
     padding: 1rem 15rem 2rem 15rem;
     position: relative;
-    /* border: double 3px #ffcc35; */
-    /* z-index: 1; */
   }
-  /* .storyCard:before{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    box-shadow: inset 0 0 2000px rgba(7, 7, 7, 0.5); 
-    box-shadow: inset 2000px 2000px 2000px rgba(255, 204, 53, 0.5);
-     filter: blur(3px);
-  } */
-  /* .storyCard .rating {
-    position: absolute;
-    top: -20px;
-    left: -20px;
-    background: #ffcc35;
-    font-size: 3em;
-    width: 90px;
-    height: 90px;
-    text-align: center;
-    color: white;
-  } */
   .storyCard h1 {
     margin: 1rem 1rem;
     color: black;
@@ -49,7 +23,6 @@ a {
   }
   .storyCard small {
     margin: 1rem 1rem;
-    /* color: #ffcc35; */
     z-index: 10;
   }
   .storyCard p{
@@ -78,7 +51,6 @@ a {
     min-width: 15rem;
     font-size: 1.3rem;
     font-weight: bold;
-    /* background-color: #000000; */
     background-color: #ffcc35;
     color: white;
     margin-top: 1.2rem;

@@ -1,13 +1,9 @@
 import { useEffect, useState } from "react"
-//import {useNavigate, useLocation} from 'react-router-dom'
 
 const useFetch = (url,token) => {
   const [data, setData] = useState([])
   const [error, setError] = useState([])
   const [loading, setLoading] = useState(true)
-  //const navigate = useNavigate();
-  // const location = useLocation();
-  //const path =  '/';
 
   useEffect(() => {
     const fetchData = async () => {

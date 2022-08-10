@@ -3,11 +3,10 @@ import { useParams, Link } from 'react-router-dom'
 import useFetch from '../hooks/useFetch'
 import axios from 'axios'
 import fileDownload from 'js-file-download'
-import {generateZip, generateZipFromCloud} from '../components/GenerateZip';
+import {generateZipFromCloud} from '../components/GenerateZip';
 import { useCookies } from 'react-cookie'
-// import Carousel from 'react-bootstrap/Carousel';
+
 import styles from '../static/styles/story.module.css'
-import ImageGallery from '../components/Carousel/Carousel'
 import Carousel from '../components/Carousel/Carousel'
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
