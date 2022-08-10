@@ -11,7 +11,7 @@ import MediaCarousel from '../components/Carousel/Carousel'
 import styles  from '../static/styles/homepage.module.css'
 
 export default function Homepage() {
-  const aws_url = 'http://ec2-34-229-6-6.compute-1.amazonaws.com'
+  const aws_url = 'http://ec2-54-227-77-12.compute-1.amazonaws.com'
   const [cookies] = useCookies(['token']);
   const { loading, error, data } = useFetch(`${aws_url}/api/stories?populate=Media`, cookies.token)
 

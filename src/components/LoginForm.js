@@ -9,7 +9,7 @@ import { FiInstagram, FiFacebook, FiLinkedin, FiTwitter } from "react-icons/fi";
 
 
 const SignIn = () => {
-  const url = 'http://ec2-34-229-6-6.compute-1.amazonaws.com/api/auth/local'
+  const url = 'http://ec2-54-227-77-12.compute-1.amazonaws.com/api/auth/local'
   const {setAuth} = useAuth();
 
   const navigate = useNavigate();
