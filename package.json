@@ -8,6 +8,7 @@
     "@testing-library/user-event": "^13.5.0",
     "axios": "^0.27.2",
     "file-saver": "^2.0.5",
+    "framer-motion": "^7.0.0",
     "js-file-download": "^0.4.12",
     "jszip": "^3.10.0",
     "jszip-utils": "^0.1.0",
@@ -20,6 +21,9 @@
     "react-responsive-carousel": "^3.2.23",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "react-slick": "^0.29.0",
+    "react-spinners": "^0.13.4",
+    "slick-carousel": "^1.8.1",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

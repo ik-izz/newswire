@@ -8,6 +8,7 @@ import { useCookies } from 'react-cookie'
 
 import styles from '../static/styles/story.module.css'
 import Carousel from '../components/Carousel/Carousel'
+import { motion } from "framer-motion"
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 import Download from '../static/download.png'
@@ -15,11 +16,10 @@ import Download from '../static/download.png'
 export const zipUrl = []
 
 export default function Story() {
-  const aws_url = 'http://ec2-54-227-77-12.compute-1.amazonaws.com'
+  const aws_url = 'http://ec2-54-90-149-122.compute-1.amazonaws.com'
   const {id} = useParams() ;
   const [cookies] = useCookies(['token']);
   const { loading, error, data } = useFetch(`${aws_url}/api/stories/${id}?populate=Media`, cookies.token);
-  const { data:fullData } = useFetch(`${aws_url}/api/stories/?populate=Media`, cookies.token);
 
   if (loading) return <p>Loading...</p>
 
@@ -37,7 +37,7 @@ export default function Story() {
   return (
     <div className={`${styles.storyBody}`}>
       <div  className={`m-5 ${styles.storyCard}`}>
-            {/* <div className={styles.rating}>{data.data.id}</div> */}
+        {/* <div className={styles.rating}>{data.data.id}</div> */}
             <h1 className='text-capitalize'>{data.data.attributes.Title}</h1>
             <small>published: {data.data.attributes.Date}</small>
             <p>{data.data.attributes.Description}</p>
@@ -87,15 +87,16 @@ export default function Story() {
             
             {/* <a href={url} download={'media.jpg'} target={'blank'}> */}
             <div className={styles.buttonContainer}>
-              <button 
+              <motion.button 
                 className={styles.download}
+                whileHover={{scale:1.1}}
                 // onClick={() => 
                 //   {handleclick
                 //     (`http://localhost:1337${data.data.attributes.media.data[0].attributes.formats.thumbnail.url}`,
                 //      "media.jpg")}}
                 onClick={generateZipFromCloud}
                 >Dowload Media
-              </button>
+              </motion.button>
             </div>
             {/* </a> */}
         </div>

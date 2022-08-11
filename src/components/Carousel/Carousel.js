@@ -1,12 +1,9 @@
 import React from "react";
-import ImageGallery from "react-image-gallery";
 import { Carousel } from "react-responsive-carousel";
 import './Carousel.css'
 
 const MyGallery = ({items}) => {
-    console.log(items) 
     const url = items.attributes.Media.data
-    console.log(url)
         return (
         <Carousel 
             showArrows={true} dynamicHeight={true} swipeable={true} >

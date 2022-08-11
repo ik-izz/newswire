@@ -1,87 +1,56 @@
-import React from 'react'
+import React, {CSSProperties} from 'react'
 import useFetch from '../hooks/useFetch'
 import { Link } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
-import Header from "../components/header/Header";
-import Carousel from 'react-bootstrap/Carousel';
 
 import MediaCarousel from '../components/Carousel/Carousel'
+import SimpleSlider from "../components/HeaderCar/Carrousel";
+import { motion } from "framer-motion"
 import styles  from '../static/styles/homepage.module.css'
+import RingLoader from "react-spinners/RingLoader";
+
+export const override = {
+    position: 'absolute',
+    top: '35vh',
+    left: '45vw',
+  };
 
 export default function Homepage() {
-  const aws_url = 'http://ec2-54-227-77-12.compute-1.amazonaws.com'
+  const aws_url = 'http://ec2-54-90-149-122.compute-1.amazonaws.com'
   const [cookies] = useCookies(['token']);
   const { loading, error, data } = useFetch(`${aws_url}/api/stories?populate=Media`, cookies.token)
 
-  if (loading) return <p>Loading...</p>;
+  if (loading) return <RingLoader color={'#ffcc35'} cssOverride={override} size={'10rem'}/>;
 
-  // console.log(data.data[0].attributes.media.data[0].attributes.formats.thumbnail.url)
-  console.log(data)
+  let direction = ''
   return (
     <div className={`p-5 ${styles.homeBody}`}  >
-      <Header/>
-
-    {/* <div className='d-flex justify-content-center'>
-      <Carousel className='carousel w-50 justify-content-center'>
-      {data.data.map( (story, index) => (
-      <Carousel.Item key={story.id}>
-        <img
-          className="d-block w-100"
-          src={story.attributes.Media.data[1].attributes.url}
-          alt="First slide"
-        />
-        <Carousel.Caption>
-        <h2>{story.attributes.Title}</h2>
-          <small>published: {story.attributes.Date}</small>
-          <p>{story.attributes.Description.substring(0, 200)}...</p>
-          <Link to={`/story/${story.id}`}>Read more</Link>
-        </Carousel.Caption>
-      </Carousel.Item>
-      ))}
-      </Carousel>
-      </div> */}
-
+      <h1 className={styles.storyHeader}>Top Stories</h1>
+      <SimpleSlider data={data}/>
+      {/* <Header/> */}
+      <h1 className={styles.storyHeader}>Stories</h1>
       <div className={styles.storyContainer}>
-      {data.data.map( (story, index) => (
-        
-        <div key={story.id} className={styles.storyCard}>
-          {/* <img className='img-background' src={story.attributes.Media.data[0].attributes.url}/> */}
-          {/* <div className="rating">{story.id}</div> */}
-          <h2>{story.attributes.Title}</h2>
-          <small>published: {story.attributes.Date}</small>
-          <p>{story.attributes.Description.substring(0, 200)}...</p>
+        {data?.data?.map( (story, index) => (
+
+          direction = index % 2 == 0 ? '-100vw' : '200vw',
+
+          <motion.div key={story.id} className={styles.storyCard} 
+            initial={{x:direction}} //left
+            animate={{x:0,y:0}} 
+            transition={{duration: 1.3}}>
+
+            <h2>{story.attributes.Title}</h2>
+            <small>published: {story.attributes.Date}</small>
+            <p>{story.attributes.Description.substring(0, 200)}...</p>
+            
+            <div className={styles.imgWrapper}>
+              <MediaCarousel items={story} id='hello' />
+            </div>
+
+            <Link to={`/story/${story.id}`} >Read more</Link>
+          </motion.div>
           
-          <div className={styles.imgWrapper}>
-            {console.log(story)}
-            <MediaCarousel items={story} id='hello' />
-
-            {/* {story.attributes.Media.data.map( img => {
-              console.log(img)
-              return(
-                <div key={img.id} className={styles.imgContainer}>
-                   {img.attributes.mime.includes('video')
-                  ?
-                    <video 
-                    className={styles.img}
-                    controls 
-                    src={img.attributes.url}
-                    />
-                  :
-                    <img 
-                    className={styles.img}
-                    src={img.attributes.url}
-                    />
-                  }
-                </div>
-              )
-            })} */}
-          </div>
-
-          <Link to={`/story/${story.id}`} >Read more</Link>
-          {/* <img src={`http://localhost:1337${data.data[index].attributes.media.data[0].attributes.url}`}/> */}
-        </div>
-        
-      ))}
+        ))}
       </div>
     </div>
 

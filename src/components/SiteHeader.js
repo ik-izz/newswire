@@ -34,9 +34,9 @@ export default function SiteHeader() {
       </div>
     {cookies?.token ?
       <Nav className={`${styles.menuLinks}`}>
-        <Link to='/' className="" onClick={handleRemoveCookie}><h3>Logout</h3></Link>
         <Link to="/homepage" className="btn-1"><h3>Stories</h3></Link>
         <Link to='/' className="" ><h3>Account</h3></Link>
+        <Link to='/' className="" onClick={handleRemoveCookie}><h3>Logout</h3></Link>
       </Nav>  
       :
       <Nav className={`${styles.menuLinks}`}>
