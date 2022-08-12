@@ -41,7 +41,6 @@
   }
   .footer{
     margin-bottom: -2rem;
-    
   }
 
   video {
@@ -53,7 +52,10 @@
     width: auto;
     height: auto;
     z-index: -1000;
-  
+  }
+
+  h6{
+    color: white;
   }
   
   

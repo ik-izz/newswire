@@ -6,7 +6,7 @@ import {useCookies} from 'react-cookie';
 import styles from './styles/loginForm.module.css'
 import { Container, Row, Col } from 'react-bootstrap';
 import { FiInstagram, FiFacebook, FiLinkedin, FiTwitter } from "react-icons/fi";
-
+import vngle3 from './vngle3.mp4';
 
 const SignIn = () => {
   const url = 'http://ec2-34-227-193-48.compute-1.amazonaws.com/api/auth/local'
@@ -54,9 +54,24 @@ const SignIn = () => {
 
   return (
     <div class="overlay">
-      <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
-  <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4" />
-  </video>
+      <div className='youtube-video'>
+        <video className='videoTag' autoPlay loop muted>
+          <source src={vngle3} type='video/mp4' />
+        </video>
+
+        {/*<iframe
+    allow='autoplay; encryted-media'
+    allowFullScreen
+    frameborder="0"
+    height="100%"
+    width="100%"
+    src="https://youtube.com/embed/jaTq_BrYbWQ?autoplay=1&controls=0&autohide=1&mute=1"
+  >
+  </iframe>*/}
+  
+</div>
+
+      
     <div className={`${styles.formContainer}`}>
 
     <section className={`Form my-0 mx-5`}>
