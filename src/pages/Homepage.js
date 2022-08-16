@@ -16,7 +16,7 @@ export const override = {
   };
 
 export default function Homepage() {
-  const aws_url = 'http://ec2-54-90-149-122.compute-1.amazonaws.com'
+  const aws_url = 'http://ec2-54-160-36-100.compute-1.amazonaws.com'
   const [cookies] = useCookies(['token']);
   const { loading, error, data } = useFetch(`${aws_url}/api/stories?populate=Media`, cookies.token)
 
