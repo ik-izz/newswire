@@ -1,9 +1,10 @@
-.carImage > img{
+.carImage > img {
     max-height: 50vh;
     object-fit:contain;
 }
 .carImage > video{
     max-height: 50vh;
+    object-fit: contain;
 }
 .carImage{
     height: 100%;

@@ -10,18 +10,19 @@ import styles from '../static/styles/story.module.css'
 import Carousel from '../components/Carousel/Carousel'
 import { motion } from "framer-motion"
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
+import GridLoader from "react-spinners/GridLoader";
 
 import Download from '../static/download.png'
 
 export const zipUrl = []
 
 export default function Story() {
-  const aws_url = 'http://ec2-54-90-149-122.compute-1.amazonaws.com'
+  const aws_url = 'http://ec2-54-209-146-242.compute-1.amazonaws.com'
   const {id} = useParams() ;
   const [cookies] = useCookies(['token']);
   const { loading, error, data } = useFetch(`${aws_url}/api/stories/${id}?populate=Media`, cookies.token);
 
-  if (loading) return <p>Loading...</p>
+  if (loading) return <div className={styles.loader}><GridLoader color={'#ffcc35'} size={'50px'}/></div>;
 
   const handleclick = (url, media) => {
     console.log(url)
@@ -42,63 +43,30 @@ export default function Story() {
             <small>published: {data.data.attributes.Date}</small>
             <p>{data.data.attributes.Description}</p>
         <Carousel items={data.data}/>
-            {/* <div className={styles.imgWrapper}> */}
-              {data.data.attributes.Media.data.map( (img, index) => {
-                
-                img.attributes.mime.includes('video')
-                    ?
-                      zipUrl.push(img.attributes.url)
-                    :
-                      zipUrl.push(img.attributes.url)
-                return
-                //(
-                //   <div className={styles.imgContainer} key={img.id}>
-                //     {img.attributes.mime.includes('video')
-                //     ?
-                //       <video 
-                //       className={styles.img}
-                //       controls 
-                //       src={img.attributes.url}
-                //       />
-                //     :
-                //       <img 
-                //       className={styles.img}
-                //       src={img.attributes.url}
-                //       />
-                //     }
-                    
-                //     <img 
-                //       src={Download} 
-                //       className={styles.downloadIcon}
-                //       onClick={() => 
-                //         {img.attributes.mime.includes('video')
-                //         ?
-                //           (handleclick(data.data.attributes.Media.data[index].attributes.url,
-                //           `video.webm`))
-                //         :
-                //           (handleclick(data.data.attributes.Media.data[index].attributes.url,
-                //           `${data.data.attributes.Media.data[index].attributes.alternativeText}`))
-                //         }
-                //       }/>
-                //   </div>
-                // )
-              })}
-            {/* </div> */}
+        {data.data.attributes.Media.data.map( (img, index) => {
+          
+          img.attributes.mime.includes('video')
+              ?
+                zipUrl.push(img.attributes.url)
+              :
+                zipUrl.push(img.attributes.url)
+          return
+        })}
             
-            {/* <a href={url} download={'media.jpg'} target={'blank'}> */}
-            <div className={styles.buttonContainer}>
-              <motion.button 
-                className={styles.download}
-                whileHover={{scale:1.1}}
-                // onClick={() => 
-                //   {handleclick
-                //     (`http://localhost:1337${data.data.attributes.media.data[0].attributes.formats.thumbnail.url}`,
-                //      "media.jpg")}}
-                onClick={generateZipFromCloud}
-                >Dowload Media
-              </motion.button>
+        {/* <a href={url} download={'media.jpg'} target={'blank'}> */}
+        <div className={styles.buttonContainer}>
+          <motion.button 
+            className={styles.download}
+            whileHover={{scale:1.1}}
+            // onClick={() => 
+            //   {handleclick
+            //     (`http://localhost:1337${data.data.attributes.media.data[0].attributes.formats.thumbnail.url}`,
+            //      "media.jpg")}}
+            onClick={generateZipFromCloud}
+            >Dowload Media
+          </motion.button>
             </div>
-            {/* </a> */}
+          {/* </a> */}
         </div>
       </div>
       
