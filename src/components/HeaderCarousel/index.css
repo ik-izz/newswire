@@ -22,6 +22,9 @@
   .slick-slide *{
    width: 100%;
   }
+  .slick-slide {
+   position: relative;
+  }
   
   
   .slick-prev{
@@ -43,4 +46,10 @@
   }
   .slick-dots li button::before{
     font-size: 0.8rem ;
+  }
+  .carousel-header{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    color: red ;
   }

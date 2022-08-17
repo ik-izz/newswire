@@ -9,11 +9,7 @@ h1,h2,h3,h4 {
 }
 .App {
   font-size: 1.2em;
-  /* margin: 10px auto; */
   width: 100%;
-  /* max-width: 1600px;
-  min-width: 600px; */
-  /* padding: 20px; */
   box-sizing: border-box;
 }
 a {

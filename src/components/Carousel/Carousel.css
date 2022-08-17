@@ -3,8 +3,12 @@
     object-fit:contain;
 }
 .carImage > video{
-    max-height: 50vh;
+    /* max-height: 50vh; */
     object-fit: contain;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
 }
 .carImage{
     height: 100%;
@@ -21,7 +25,7 @@
 .carousel-slider img{
     max-height: 30vh;
 }
-.carousel-slider video{
+.carousel-slider > video{
     max-height: 30vh;
 }
 .slider-wrapper{

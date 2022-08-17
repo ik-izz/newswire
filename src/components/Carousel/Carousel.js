@@ -11,10 +11,11 @@ const MyGallery = ({items}) => {
                  <div key={img.id} className='carImage'>
                  {img.attributes.mime.includes('video')
                  ?
-                   <video 
+                   <video
                    controls 
-                   src={img.attributes.url}
-                   />
+                   >
+                    <source src={img.attributes.url} type={img.attributes.mime}/>
+                  </video>
                  :
                    <img 
                    src={img.attributes.url}

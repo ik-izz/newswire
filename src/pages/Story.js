@@ -17,7 +17,7 @@ import Download from '../static/download.png'
 export const zipUrl = []
 
 export default function Story() {
-  const aws_url = 'http://ec2-54-209-146-242.compute-1.amazonaws.com'
+  const aws_url = 'http://ec2-54-227-22-214.compute-1.amazonaws.com'
   const {id} = useParams() ;
   const [cookies] = useCookies(['token']);
   const { loading, error, data } = useFetch(`${aws_url}/api/stories/${id}?populate=Media`, cookies.token);
@@ -38,7 +38,6 @@ export default function Story() {
   return (
     <div className={`${styles.storyBody}`}>
       <div  className={`m-5 ${styles.storyCard}`}>
-        {/* <div className={styles.rating}>{data.data.id}</div> */}
             <h1 className='text-capitalize'>{data.data.attributes.Title}</h1>
             <small>published: {data.data.attributes.Date}</small>
             <p>{data.data.attributes.Description}</p>

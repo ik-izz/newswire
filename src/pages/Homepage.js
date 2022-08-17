@@ -4,15 +4,15 @@ import { Link } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
 
 import MediaCarousel from '../components/Carousel/Carousel'
-import SimpleSlider from "../components/HeaderCar/Carrousel";
+import HeaderCarousel from "../components/HeaderCarousel/Carrousel";
 import { motion } from "framer-motion"
 import styles  from '../static/styles/homepage.module.css'
 import GridLoader from "react-spinners/GridLoader";
 
 export default function Homepage() {
-  const aws_url = 'http://ec2-54-209-146-242.compute-1.amazonaws.com'
+  const aws_url = 'http://ec2-54-227-22-214.compute-1.amazonaws.com'
   const [cookies] = useCookies(['token']);
-  const { loading, error, data } = useFetch(`${aws_url}/api/stories?populate=Media`, cookies.token)
+  const { loading, error, data } = useFetch(`${aws_url}/api/stories?populate=Media&sort=Date:DESC`, cookies.token)
 
   if (loading) return <div className={styles.loader}><GridLoader color={'#ffcc35'} size={'50px'}/></div>;
 
@@ -20,8 +20,7 @@ export default function Homepage() {
   return (
     <div className={`p-5 ${styles.homeBody}`}  >
       <h1 className={styles.storyHeader}>Top Stories</h1>
-      <SimpleSlider data={data}/>
-      {/* <Header/> */}
+      <HeaderCarousel items={data}/>
       <h1 className={styles.storyHeader}>Stories</h1>
       <div className={styles.storyContainer}>
         {data?.data?.map( (story, index) => (
