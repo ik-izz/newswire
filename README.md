@@ -34,14 +34,21 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-## Features 
+## Description 
 
 Vngle's mission is to amplify various angles of grassroots coverage.\
-This App is targetted specifically for news editors and reporters. After you install and launch the app, you will be able to share, manage your stories as well as intercat with other people's stories. 
+This App is targetted specifically for news editors and reporters. After you install and launch the app, you will be able to share, edit and manage your stories as well as intercat with other people's stories. 
 
 ## Contribute
 
 - Source Code: [https://github.com/ik-izz/newswire](https://github.com/ik-izz/newswire)
+
+## Credits 
+
+- Israel Klein, CMS Intern, [github](https://github.com/ik-izz)
+- Robert Quartey, CMS Intern, [github](https://github.com/Robertquartey7)
+- Muzaffar Mukhitdinov, CMS Intern, [github](https://github.com/nolimitmuzaffar)
+- Kenneth Chen, CTO Vngle, [github](https://github.com/efeichen)
 
 ## Support 
 
