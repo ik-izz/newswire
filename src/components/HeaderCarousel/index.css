@@ -5,13 +5,10 @@
     margin-top: 1.5rem;
   }
   .slick-track *{
-    /* min-height: 50vh; */
     height: 49.3vh;
   }
   .slick-track {
     height: 50vh;
-
-    /* background-color: white; */
     display: flex !important;
     justify-content: center !important;
   }
@@ -25,8 +22,6 @@
   .slick-slide {
    position: relative;
   }
-  
-  
   .slick-prev{
     margin: 0rem 5rem;
     z-index: 10;
@@ -51,5 +46,7 @@
     position: absolute;
     top: 1rem;
     left: 1rem;
-    color: red ;
+    color: #ffcc35 ;
+    height: 1rem;
+    width: 6rem;
   }

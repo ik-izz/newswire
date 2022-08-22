@@ -3,8 +3,6 @@ import { saveAs } from 'file-saver';
 import {zipUrl} from '../pages/Story'
 
 export const generateZipFromCloud = () => { 
-    console.log(zipUrl);
-
     let filename = "Vngle";
     const zip = new JSZip()
     const folder = zip.folder('Media')
@@ -12,8 +10,7 @@ export const generateZipFromCloud = () => {
     zipUrl.forEach((url)=> {
     const blobPromise =  fetch(url)    
     .then(function (response) {  
-
-  console.log({response})             
+           
     if (response.status === 200 || response.status === 0) {
         return Promise.resolve(response.blob());
     } else {

@@ -10,7 +10,7 @@ import styles  from '../static/styles/homepage.module.css'
 import GridLoader from "react-spinners/GridLoader";
 
 export default function Homepage() {
-  const aws_url = 'http://ec2-54-227-22-214.compute-1.amazonaws.com'
+  const aws_url = 'http://ec2-34-201-151-118.compute-1.amazonaws.com'
   const [cookies] = useCookies(['token']);
   const { loading, error, data } = useFetch(`${aws_url}/api/stories?populate=Media&sort=Date:DESC`, cookies.token)
 

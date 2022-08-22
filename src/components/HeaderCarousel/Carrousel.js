@@ -8,9 +8,8 @@ import "slick-carousel/slick/slick-theme.css";
 import './index.css'
 
 const HeaderCarousel = ({items}) => {
-  console.log(items)
     const settings = {
-        slidesToScroll: 3,
+        slidesToScroll: 1,
         dots: true,
         infinite: true,
         centerMode: true,
@@ -23,7 +22,7 @@ const HeaderCarousel = ({items}) => {
             <Slider {...settings}>
              {items.data.map((item, index) => {
               return(
-                <div>
+                <div key={item.id}>
                   {item.attributes.Media.data[0].attributes.mime.includes('video')
                  ?
                    <video

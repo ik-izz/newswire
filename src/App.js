@@ -1,6 +1,5 @@
 import { BrowserRouter as Router, Route, Routes,Navigate } from "react-router-dom";
 import RequireAuth from './components/RequireAuth';
-import VerifyToken from "./components/VerifyToken";
 
 //page & layout import
 import Homepage from "./pages/Homepage";
@@ -11,7 +10,6 @@ import Login from './pages/Login'
 function App() {
 
   return (
-    
     <Router>
       <div className="App">
           <SiteHeader />

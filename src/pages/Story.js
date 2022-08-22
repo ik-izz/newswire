@@ -1,8 +1,6 @@
 import React from 'react'
 import { useParams, Link } from 'react-router-dom'
 import useFetch from '../hooks/useFetch'
-import axios from 'axios'
-import fileDownload from 'js-file-download'
 import {generateZipFromCloud} from '../components/GenerateZip';
 import { useCookies } from 'react-cookie'
 
@@ -12,28 +10,15 @@ import { motion } from "framer-motion"
 import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import GridLoader from "react-spinners/GridLoader";
 
-import Download from '../static/download.png'
-
 export const zipUrl = []
 
 export default function Story() {
-  const aws_url = 'http://ec2-54-227-22-214.compute-1.amazonaws.com'
+  const aws_url = 'http://ec2-34-201-151-118.compute-1.amazonaws.com'
   const {id} = useParams() ;
   const [cookies] = useCookies(['token']);
   const { loading, error, data } = useFetch(`${aws_url}/api/stories/${id}?populate=Media`, cookies.token);
 
   if (loading) return <div className={styles.loader}><GridLoader color={'#ffcc35'} size={'50px'}/></div>;
-
-  const handleclick = (url, media) => {
-    console.log(url)
-    axios.get(url, {
-      responseType: 'blob',
-    })
-    .then((response) => {
-
-      fileDownload(response.data, media)
-    })
-  }
 
   return (
     <div className={`${styles.storyBody}`}>
@@ -52,20 +37,15 @@ export default function Story() {
           return
         })}
             
-        {/* <a href={url} download={'media.jpg'} target={'blank'}> */}
         <div className={styles.buttonContainer}>
           <motion.button 
             className={styles.download}
             whileHover={{scale:1.1}}
-            // onClick={() => 
-            //   {handleclick
-            //     (`http://localhost:1337${data.data.attributes.media.data[0].attributes.formats.thumbnail.url}`,
-            //      "media.jpg")}}
+  
             onClick={generateZipFromCloud}
             >Dowload Media
           </motion.button>
             </div>
-          {/* </a> */}
         </div>
       </div>
       

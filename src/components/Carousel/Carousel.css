@@ -3,7 +3,6 @@
     object-fit:contain;
 }
 .carImage > video{
-    /* max-height: 50vh; */
     object-fit: contain;
     min-width: 100%;
     min-height: 100%;
@@ -31,4 +30,11 @@
 .slider-wrapper{
     border: inset 3px rgb(146, 140, 140);
     background-color: rgba(214, 193, 164, 0.849);
+  }
+  .btn{
+    position: absolute;
+    left: 2rem;
+    top: .5rem;
+    z-index: 10;
+    color: #ffcc35;
   }
