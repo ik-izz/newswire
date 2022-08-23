@@ -1,22 +1,36 @@
-import React, {CSSProperties} from 'react'
-import useFetch from '../hooks/useFetch'
+import React from 'react'
 import { Link } from 'react-router-dom'
 import { useCookies } from 'react-cookie'
-
+// Hooks
+import useFetch from '../hooks/useFetch'
+// Carousels
 import MediaCarousel from '../components/Carousel/Carousel'
 import HeaderCarousel from "../components/HeaderCarousel/Carrousel";
+// Animation
 import { motion } from "framer-motion"
-import styles  from '../static/styles/homepage.module.css'
 import GridLoader from "react-spinners/GridLoader";
+// Styles
+import styles  from '../static/styles/homepage.module.css'
+
+
 
 export default function Homepage() {
-  const aws_url = 'http://ec2-34-201-151-118.compute-1.amazonaws.com'
+  //Url needs to be changed to the proper server url and it needs to be stored in env file for best practice
+  const aws_url = 'http://ec2-34-207-151-192.compute-1.amazonaws.com'
+
+  // Using the react cookie library https://github.com/reactivestack/cookies/tree/master/packages/react-cookie
   const [cookies] = useCookies(['token']);
+
+  // Uses the custom fetch hook to request the data, passes the server url and the token stored in the cookies as a second param
   const { loading, error, data } = useFetch(`${aws_url}/api/stories?populate=Media&sort=Date:DESC`, cookies.token)
 
+  //Displays loader while data is being fetched
   if (loading) return <div className={styles.loader}><GridLoader color={'#ffcc35'} size={'50px'}/></div>;
 
+  //Variable to determine the direction in which the story should be animated from 
   let direction = ''
+
+
   return (
     <div className={`p-5 ${styles.homeBody}`}  >
       <h1 className={styles.storyHeader}>Top Stories</h1>
@@ -25,6 +39,7 @@ export default function Homepage() {
       <div className={styles.storyContainer}>
         {data?.data?.map( (story, index) => (
 
+          // Determines which direction the node should animate from 
           direction = index % 2 == 0 ? '-100vw' : '200vw',
 
           <motion.div key={story.id} className={styles.storyCard} 

@@ -2,6 +2,7 @@ import JSZip from  'jszip';
 import { saveAs } from 'file-saver';
 import {zipUrl} from '../pages/Story'
 
+// import array of url's, requests those files and then zips them https://stackblitz.com/edit/zip-file-downloader-react-xincfp?file=generateZip.js
 export const generateZipFromCloud = () => { 
     let filename = "Vngle";
     const zip = new JSZip()

@@ -16,11 +16,10 @@ function App() {
           <Routes>
             <Route path="/" element={<Login />} />
             
-
+              {/*Protected routes, children routes get released based on token stored in cookies (see RequireAuth in components folder) */}
               <Route element={<RequireAuth/>}>
                 {/* <Route element={<VerifyToken/>}> */}
                   <Route path="/homepage" element={<Homepage />} />
-
                   <Route path="/story/:id" element={<Story />} />
                 {/* </Route> */}
               </Route>

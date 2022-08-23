@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react"
 
+
+// Fetches Data from strapi
 const useFetch = (url,token) => {
   const [data, setData] = useState([])
   const [error, setError] = useState([])
@@ -8,7 +10,6 @@ const useFetch = (url,token) => {
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true)
-      console.log('I was called')
       try {
         const res = await fetch(url, {
           headers: {
@@ -19,12 +20,8 @@ const useFetch = (url,token) => {
 
         setData(json);
         setLoading(false)
-        console.log(json)
         console.log('I fetched the data')
       } catch (error) {
-        //FIXME error block never executes even if there is an error in the fetch
-        console.log(error)
-        //navigate(path, {replace : true});
         setError(error)
         console.log('oops error')
         setLoading(false)

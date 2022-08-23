@@ -1,44 +1,54 @@
-import axios from 'axios'
 import React, { useState} from 'react'
 import {useNavigate, useLocation} from 'react-router-dom'
 import useAuth from '../hooks/useAuth';
 import {useCookies} from 'react-cookie';
+import axios from 'axios'
+
+// Styling
 import styles from './styles/loginForm.module.css'
 import { Container, Row, Col } from 'react-bootstrap';
+
+// Footer Icons
 import { FiInstagram, FiFacebook, FiLinkedin, FiTwitter } from "react-icons/fi";
 
 
 const SignIn = () => {
-  const url = 'http://ec2-34-201-151-118.compute-1.amazonaws.com/api/auth/local'
+  // Url needs to be changed to the proper server url and it needs to be stored in env file for best practice
+  const url = 'http://ec2-34-207-151-192.compute-1.amazonaws.com/api/auth/local'
+
+  //uses the context hook so the token, cookies and roles(not yet implemented) can be accessed globally
   const {setAuth} = useAuth();
 
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || '/homepage';
 
+  // Stores the form data in state
   const [formData, setFormData] = useState({
     userName: '',
     password: '',
   })
+
+  // Using the react cookie library https://github.com/reactivestack/cookies/tree/master/packages/react-cookie
   const [cookies, setCookie, removeCookie] = useCookies(['token'])
 
+  // Submits form data to Strapi (V4)
   const handleSubmit = (e) => {
     e.preventDefault()
     axios
       .post(url, {
-      identifier: formData.userName,
-      password: formData.password
+          identifier: formData.userName,
+          password: formData.password
       })
       .then((response) => {
-        console.log('user profile', response?.data?.user);
-        console.log( 'token:' ,response?.data?.jwt);
-
         const token = response?.data?.jwt;
+
         //FIXME!!! need to set access based on roles
         const roles = response?.data?.roles;
 
         setCookie( 'token', token, {path:'/', maxAge: 6000} );
 
+        // Allows the token, cookie, and roles(not yet implemented) to be accessed globally
         setAuth({ token, roles, cookies});
 
         //upon successful login it navigates user to page they came from,
@@ -53,18 +63,17 @@ const SignIn = () => {
   }
 
   return (
+    // Login page background video
     <div classname="overlay" >
       <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" className={styles.loginVideo}>
          <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4" />
       </video>
     <div className={`${styles.formContainer}`}>
 
+    {/* Login form */}
     <section className={`Form my-0 mx-5`}>
           <div className={`${styles.container}`}>
               <div className={`${styles.row} row`}>
-                  {<div className={`col-lg-5`}>
-                  {/* Picture was here <img src={Logo} className={`img-fluid alt=`}/>*/}
-                  </div>}
                   <div className={`col-lg-20 px-5 p-5`}>
                       {/* <h1 className={`font-weight-bold py-3`}>Vngle</h1> */}
                       <h4>Sign into your Vngle account</h4>
@@ -113,7 +122,7 @@ const SignIn = () => {
           </div>
       </section>
      
-
+    {/* Footer */}
     </div>
     <Container as="footer" className="text-center mt-0 footer">
         <Row>
@@ -143,12 +152,7 @@ const SignIn = () => {
           </Container>
           </Col>
         </Row>
-
-      
       </Container>
-      
-      
-
     </div>
   )
 }

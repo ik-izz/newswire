@@ -7,7 +7,9 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import './index.css'
 
+// Carousel for the homepage header not to be confused with the caorusel used in each individual story
 const HeaderCarousel = ({items}) => {
+    // Carousel settings
     const settings = {
         slidesToScroll: 1,
         dots: true,
@@ -17,24 +19,26 @@ const HeaderCarousel = ({items}) => {
         slidesToShow: 3,
        adaptiveHeight: true,
       };
+
         return (
+
             <div>
+              {/* Carousel */}
             <Slider {...settings}>
-             {items.data.map((item, index) => {
+              {/* Loops over all the stories from strapi */}
+             {items.data.map( item => {
               return(
                 <div key={item.id}>
                   {item.attributes.Media.data[0].attributes.mime.includes('video')
                  ?
-                   <video
-                   controls 
-                   >
+                   <video controls >
                     <source 
                         src={item.attributes.Media.data[0].attributes.url} 
                         type={item.attributes.Media.data[0].attributes.mime}/>
                   </video>
                  :
                    <img 
-                   src={item.attributes.Media.data[0].attributes.url}
+                      src={item.attributes.Media.data[0].attributes.url}
                    />
                  }
                  <Link to={`/story/${item.id}`} className='carousel-header'>Read more</Link>
