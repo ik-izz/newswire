@@ -7,6 +7,7 @@ import axios from 'axios'
 // Styling
 import styles from './styles/loginForm.module.css'
 import { Container, Row, Col } from 'react-bootstrap';
+import vngle3 from '../static/vngle3.mp4'
 
 // Footer Icons
 import { FiInstagram, FiFacebook, FiLinkedin, FiTwitter } from "react-icons/fi";
@@ -65,21 +66,22 @@ const SignIn = () => {
   return (
     // Login page background video
     <div classname="overlay" >
-      <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop" className={styles.loginVideo}>
-         <source src="https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4" type="video/mp4" />
+      <video  autoplay='autoplay' muted='muted' loop='loop' className={styles.loginVideo}>
+         <source src={vngle3} type="video/mp4" />
       </video>
+      <div className={styles.videoCover}></div>
     <div className={`${styles.formContainer}`}>
 
     {/* Login form */}
-    <section className={`Form my-0 mx-5`}>
+    <section className={`Form`}>
           <div className={`${styles.container}`}>
               <div className={`${styles.row} row`}>
-                  <div className={`col-lg-20 px-5 p-5`}>
+                  <div className={`p-5`}>
                       {/* <h1 className={`font-weight-bold py-3`}>Vngle</h1> */}
                       <h4>Sign into your Vngle account</h4>
                       <form onSubmit={handleSubmit}>
                           <div className={`form-row`}>
-                              <div className={`col-lg-12`}>
+                              <div className={``}>
                               <input 
                                 type='text' 
                                 id='username'
@@ -94,7 +96,7 @@ const SignIn = () => {
                           </div>
 
                           <div className={`form-row`}>
-                            <div className={`col-lg-12`}>
+                            <div className={``}>
                             <input
                               type='password'
                               id='password'
@@ -106,11 +108,11 @@ const SignIn = () => {
                             </div>
                           </div>
 
-                          <div className={`form-row d-flex justify-content-center`}>
-                            <div className={`col-lg-9`}>
+                          <div className={`form-row d-flex justify-content-center `}>
+                            <div className={`login col-lg-9 `}>
                                 <button 
                                 onClick={handleSubmit}
-                                type="button" className={`${styles.btn1} mt-4 mb-5 mt-4`}>Login</button>
+                                type="button" className={`${styles.btn1} mt-4 mb-5`}>Login</button>
                             </div>
                           </div>
                           <a href="#">Forgot Password</a>
@@ -124,12 +126,12 @@ const SignIn = () => {
      
     {/* Footer */}
     </div>
-    <Container as="footer" className="text-center mt-0 footer">
+    <Container as="footer" className="text-center">
         <Row>
           
           <Col className="mb-0">
           
-          <Container className="mb-3 mt-3 mx-0">
+          <Container>
           <h6>Follow us on social media for more</h6>
           
           <a href="https://www.instagram.com/vnglestories/" >
